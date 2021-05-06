@@ -1,0 +1,58 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/Content/assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/Content/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="~/Content/assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Content/assets/jquery/jquery.min.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/toastr.min.js"></script>
+</head>
+
+<body style="font-family:'BYekan';direction:rtl" class="loading authentication-bg">
+    <div class="account-pages mt-5 mb-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="card">
+
+                        <!-- Logo -->
+                        <div class="card-header pt-2 pb-2 text-center bg-info">
+                            <h4 class="text-white mt-0 font-weight-bold">@ViewBag.title</h4>
+                        </div>
+
+                        <div class="card-body p-4">
+                            @RenderBody()
+                        </div> <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                    <!-- end row -->
+
+                </div> <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end page -->
+    <!-- bundle -->
+    <script src="~/Content/assets/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Content/assets/js/vendor.min.js"></script>
+    <script src="~/Content/assets/js/app.min.js"></script>
+
+</body>
+
+<!-- Mirrored from coderthemes.com/hyper/saas/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 Feb 2021 04:51:31 GMT -->
+</html>
