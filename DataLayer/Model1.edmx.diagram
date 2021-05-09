@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="Masjed_DBModel.Roles" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Masjed_DBModel.Users" PointX="3" PointY="0.75" Width="1.5" IsExpanded="true" />
         <AssociationConnector ManuallyRouted="false" Association="Masjed_DBModel.FK_Users_Roles" />
+        <EntityTypeShape EntityType="Masjed_DBModel.Needines" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -10,11 +10,14 @@ using DataLayer;
 
 namespace Masjed.Areas.Panel.Controllers
 {
+    [RouteArea("Panel")]
+    [RoutePrefix("users")]
     public class UsersController : Controller
     {
         
         private Masjed_DBEntities db = new Masjed_DBEntities();
        
+        [Route("test")]
         // GET: Panel/Users
         public ActionResult Index()
         {

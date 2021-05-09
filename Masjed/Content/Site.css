@@ -1,7 +1,7 @@
 ﻿@font-face {
     font-family: 'BYekan';
-    src: url('./BYekan.eot');
-    src: local('BYekan'), url('./BYekan.woff') format('woff'), url('./BYekan.ttf') format('truetype');
+    src: url('assets/BYekan.eot');
+    src: local('BYekan'), url('assets/BYekan.woff') format('woff'), url('assets/BYekan.ttf') format('truetype');
 }
 /* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_17029">Text with this font applied</p> */
 .fontsforweb_fontid_17029 {

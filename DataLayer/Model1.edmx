@@ -4,34 +4,51 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="Masjed_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+    <Schema Namespace="Masjed_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Needines">
+          <Key>
+            <PropertyRef Name="Needines_ID" />
+          </Key>
+          <Property Name="Needines_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="text" />
+          <Property Name="Sex" Type="int" />
+          <Property Name="Job" Type="nvarchar" MaxLength="150" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Pic" Type="nvarchar" MaxLength="500" />
+          <Property Name="Income" Type="nvarchar" MaxLength="50" />
+          <Property Name="Education" Type="int" />
+          <Property Name="Created_at" Type="datetime" />
+        </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="RoleID" />
           </Key>
-          <Property Name="RoleID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="RoleName" Nullable="false" MaxLength="150" Type="nvarchar" />
-          <Property Name="RoleTitle" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RoleTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="RoleID" Nullable="false" Type="int" />
-          <Property Name="Name" Nullable="false" MaxLength="150" Type="nvarchar" />
-          <Property Name="Email" Nullable="false" MaxLength="150" Type="nvarchar" />
-          <Property Name="UserName" Nullable="false" MaxLength="150" Type="nvarchar" />
-          <Property Name="Password" Nullable="false" MaxLength="250" Type="nvarchar" />
-          <Property Name="Phone" Nullable="false" MaxLength="50" Type="nvarchar" />
-          <Property Name="IsActive" Nullable="false" Type="bit" />
-          <Property Name="ActiveCode" Nullable="false" MaxLength="150" Type="nvarchar" />
-          <Property Name="RegisterDate" Nullable="false" Type="datetime" />
-          <Property Name="FailedLogin" Nullable="false" Type="int" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ActiveCode" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedLogin" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Users_Roles">
-          <End Type="Self.Roles" Multiplicity="1" Role="Roles" />
-          <End Type="Self.Users" Multiplicity="*" Role="Users" />
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
               <PropertyRef Name="RoleID" />
@@ -42,15 +59,15 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Masjed_DBModelStoreContainer">
+          <EntitySet Name="Needines" EntityType="Self.Needines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
-            <End EntitySet="Roles" Role="Roles" />
-            <End EntitySet="Users" Role="Users" />
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Masjed_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -99,7 +116,25 @@
             <End EntitySet="Roles" Role="Roles" />
             <End EntitySet="Users" Role="Users" />
           </AssociationSet>
+          <EntitySet Name="Needines" EntityType="Masjed_DBModel.Needines" />
         </EntityContainer>
+        <EntityType Name="Needines">
+          <Key>
+            <PropertyRef Name="Needines_ID" />
+          </Key>
+          <Property Name="Needines_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="Int32" />
+          <Property Name="Job" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Pic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Income" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Education" Type="Int32" />
+          <Property Name="Created_at" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -129,6 +164,24 @@
                 <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
                 <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
                 <ScalarProperty Name="FailedLogin" ColumnName="FailedLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Needines">
+            <EntityTypeMapping TypeName="Masjed_DBModel.Needines">
+              <MappingFragment StoreEntitySet="Needines">
+                <ScalarProperty Name="Created_at" ColumnName="Created_at" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Income" ColumnName="Income" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Needines_ID" ColumnName="Needines_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

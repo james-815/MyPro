@@ -21,6 +21,8 @@
     <script src="~/Content/assets/jquery/jquery.min.js"></script>
     <link href="~/Content/toastr.css" rel="stylesheet" />
     <script src="~/Scripts/toastr.min.js"></script>
+    @RenderSection("Style",false)
+
 </head>
 
 <body style="font-family:'BYekan'" class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": false}'>
@@ -71,13 +73,13 @@
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
                             <i class="uil-store"></i>
-                            <span> Ecommerce </span>
+                            <span> نیازمندان </span>
                             <span class="menu-arrow"></span>
                         </a>
                         <div class="collapse" id="sidebarEcommerce">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href="apps-ecommerce-products.html">Products</a>
+                                    <a href="apps-ecommerce-products.html">افزودن</a>
                                 </li>
                                 <li>
                                     <a href="apps-ecommerce-products-details.html">Products Details</a>
@@ -813,13 +815,11 @@
     <script src="~/Content/assets/js/app.min.js"></script>
 
     <!-- third party js -->
-    <script src="~/Content/assets/js/vendor/apexcharts.min.js"></script>
+
     <script src="~/Content/assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="~/Content/assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
     <!-- third party js ends -->
-    <!-- demo app -->
-    <script src="~/Content/assets/js/pages/demo.dashboard.js"></script>
-    <!-- end demo js-->
+    @RenderSection("Script",false)
 </body>
 
 <!-- Mirrored from coderthemes.com/hyper_2/saas/index-rtl.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Apr 2021 05:01:59 GMT -->
